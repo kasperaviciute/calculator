@@ -1,226 +1,362 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Rock Salt', cursive;
-}
-
-.calculator-main-container {
-    position: relative;
-    width: 50%;
-}
-
-.calculator-main-container::before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: calc((6 / 4) * 100%);
-}
-
-.calculator-main-container .calculator-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.calculator-container {
-    padding: 20px;
-    background-color: #feecea;
-    display: flex;
-    flex-direction: column;
-}
-
-.button-main-container {
-    position: relative;
-}
-
-.button-main-container::before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: calc((5 / 4) * 100%);
-}
-
-.button-main-container .button-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.button-container {
-    border: 5px solid white;
-    position: relative;
-}
-
-.cat {
-    position: absolute;
-    background-size: cover;
-    background-position: center;
-}
-
-.cat.equals {
-    background-image: url("./Images/=.png");
-    height: 65%;
-    width: 28%;
-    right: 1;
-    bottom: -1px;
-    z-index: 5;
-}
-
-.cat.equals .icon {
-    color: #ffe1ce;
-    position: absolute;
-    margin: 0;
-    right: 41%;
-    bottom: 39%;
-    font-size: 1.5em;
-}
-
-.cat.plus {
-    background-image: url("./Images/+.png");
-    height: 22%;
-    width: 28%;
-    right: -7px;
-    bottom: 58%;
-    z-index: 3;
-}
-
-.cat.minus {
-    background-image: url("./Images/-.png");
-    height: 17%;
-    width: 28%;
-    right: -3px;
-    bottom: 78%;
-    z-index: 3;
-}
-
-.cat.multiply {
-    background-image: url("./Images/Multiply.png");
-    height: 19%;
-    width: 32%;
-    right: 18%;
-    bottom: 77%;
-    z-index: 2;
-}
-
-.cat.divide {
-    background-image: url("./Images/_.png");
-    height: 19%;
-    width: 30%;
-    right: 47%;
-    bottom: 77%;
-    z-index: 3;
-}
-
-.cat.clear {
-    background-image: url("./Images/C.png");
-    height: 17%;
-    width: 28%;
-    right: 71%;
-    bottom: 79%;
-}
-
-.cat.nine {
-    background-image: url("./Images/9.png");
-    height: 24%;
-    width: 29%;
-    right: 23%;
-    bottom: 57%;
-}
-
-.cat.eight {
-    background-image: url("./Images/8.png");
-    height: 23%;
-    width: 27%;
-    right: 47%;
-    bottom: 57%;
-}
-
-.cat.seven {
-    background-image: url("./Images/7.png");
-    height: 23%;
-    width: 30%;
-    right: 70%;
-    bottom: 58%;
-    z-index: 1;
-}
-
-.cat.six {
-    background-image: url("./Images/6.png");
-    height: 24%;
-    width: 29%;
-    right: 24%;
-    bottom: 38%;
-    z-index: 2;
-}
-
-.cat.five {
-    background-image: url("./Images/5.png");
-    height: 22%;
-    width: 45%;
-    right: 31%;
-    bottom: 39%;
-    z-index: 2;
-}
-
-.cat.four {
-    background-image: url("./Images/4.png");
-    height: 22%;
-    width: 27%;
-    right: 72%;
-    bottom: 40%;
-    z-index: 3;
-}
-
-.cat.three {
-    background-image: url("./Images/3.png");
-    height: 23%;
-    width: 29%;
-    right: 24%;
-    bottom: 19%;
-    z-index: 2;
-}
-
-.cat.two {
-    background-image: url("./Images/2.png");
-    height: 30%;
-    width: 25%;
-    right: 50%;
-    bottom: 19%;
-    z-index: 4;
-}
-
-.cat.one {
-    background-image: url("./Images/1.png");
-    height: 23%;
-    width: 26%;
-    right: 73%;
-    bottom: 19%;
-    z-index: 2;
-}
-
-.cat.decimal {
-    background-image: url("./Images/decimal.png");
-    height: 24%;
-    width: 28%;
-    right: 25%;
-    bottom: 0;
-}
-
-.cat.zero {
-    background-image: url("./Images/0.png");
-    height: 22%;
-    width: 53%;
-    right: 49%;
-    bottom: 0;
-    z-index: 1;
-}
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Rock Salt', cursive;
+        }
+        
+        .calculator-main-container {
+            position: relative;
+            width: 50%;
+        }
+        
+        .calculator-main-container::before {
+            display: block;
+            content: "";
+            width: 100%;
+            padding-top: calc((6 / 4) * 100%);
+        }
+        
+        .calculator-main-container .calculator-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .calculator-container {
+            padding: 20px;
+            background-color: #feecea;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .button-main-container {
+            position: relative;
+        }
+        
+        .button-main-container::before {
+            display: block;
+            content: "";
+            width: 100%;
+            padding-top: calc((5 / 4) * 100%);
+        }
+        
+        .button-main-container .button-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .button-container {
+            border: 5px solid white;
+            position: relative;
+        }
+        
+        .cat {
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .cat .icon {
+            position: absolute;
+            margin: 0;
+            color: #e9c65c
+        }
+        
+        .cat.equals {
+            background-image: url("./Images/=.png");
+            height: 65%;
+            width: 28%;
+            right: 1;
+            bottom: -1px;
+            z-index: 5;
+        }
+        
+        .cat.equals .icon {
+            color: #ffe1ce;
+            right: 41%;
+            bottom: 39%;
+            font-size: 1.5em;
+        }
+        
+        .cat.plus {
+            background-image: url("./Images/+.png");
+            height: 22%;
+            width: 28%;
+            right: -7px;
+            bottom: 58%;
+            z-index: 3;
+        }
+        
+        .cat.plus .icon {
+            color: #ffe1ce;
+            right: 54%;
+            bottom: 37%;
+            font-size: 1.7em;
+        }
+        
+        .cat.minus {
+            background-image: url("./Images/-.png");
+            height: 17%;
+            width: 28%;
+            right: -3px;
+            bottom: 78%;
+            z-index: 3;
+        }
+        
+        .cat.minus .icon {
+            color: #ffe1ce;
+            right: 54%;
+            bottom: 37%;
+            font-size: 1.7em;
+        }
+        
+        .cat.multiply {
+            background-image: url("./Images/Multiply.png");
+            height: 19%;
+            width: 32%;
+            right: 18%;
+            bottom: 77%;
+            z-index: 3;
+        }
+        
+        .cat.multiply .icon {
+            color: #ffe1ce;
+            right: 58%;
+            bottom: 24%;
+            font-size: 1.7em;
+        }
+        
+        .cat.divide {
+            background-image: url("./Images/_.png");
+            height: 19%;
+            width: 30%;
+            right: 47%;
+            bottom: 77%;
+            z-index: 3;
+        }
+        
+        .cat.divide .icon {
+            color: #ffe1ce;
+            right: 29%;
+            bottom: 19%;
+            font-size: 1.7em;
+        }
+        
+        .cat.clear {
+            background-image: url("./Images/C.png");
+            height: 17%;
+            width: 28%;
+            right: 71%;
+            bottom: 79%;
+        }
+        
+        .cat.clear .icon {
+            color: #ffe1ce;
+            right: 60%;
+            bottom: 37%;
+            font-size: 1.4em;
+        }
+        
+        .cat.nine {
+            background-image: url("./Images/9.png");
+            height: 24%;
+            width: 29%;
+            right: 23%;
+            bottom: 57%;
+            z-index: 4;
+        }
+        
+        .cat.nine .icon {
+            right: 55%;
+            bottom: 47%;
+            font-size: 1.3em;
+        }
+        
+        .cat.eight {
+            background-image: url("./Images/8.png");
+            height: 23%;
+            width: 27%;
+            right: 47%;
+            bottom: 57%;
+        }
+        
+        .cat.eight .icon {
+            right: 47%;
+            bottom: 43%;
+            font-size: 1.3em;
+        }
+        
+        .cat.seven {
+            background-image: url("./Images/7.png");
+            height: 23%;
+            width: 30%;
+            right: 70%;
+            bottom: 58%;
+            z-index: 1;
+        }
+        
+        .cat.seven .icon {
+            right: 59%;
+            bottom: 48%;
+            font-size: 1.3em;
+        }
+        
+        .cat.six {
+            background-image: url("./Images/6.png");
+            height: 24%;
+            width: 29%;
+            right: 24%;
+            bottom: 38%;
+            z-index: 5;
+        }
+        
+        .cat.six .icon {
+            right: 31%;
+            bottom: 27%;
+            font-size: 1.3em;
+        }
+        
+        .cat.five {
+            background-image: url("./Images/5.png");
+            height: 22%;
+            width: 45%;
+            right: 31%;
+            bottom: 39%;
+            z-index: 2;
+        }
+        
+        .cat.five .icon {
+            right: 68%;
+            bottom: 27%;
+            font-size: 1.3em;
+        }
+        
+        .cat.four {
+            background-image: url("./Images/4.png");
+            height: 22%;
+            width: 27%;
+            right: 72%;
+            bottom: 40%;
+            z-index: 3;
+        }
+        
+        .cat.four .icon {
+            right: 64%;
+            bottom: 42%;
+            font-size: 1.3em;
+        }
+        
+        .cat.three {
+            background-image: url("./Images/3.png");
+            height: 23%;
+            width: 29%;
+            right: 24%;
+            bottom: 19%;
+            z-index: 2;
+        }
+        
+        .cat.three .icon {
+            right: 61%;
+            bottom: 26%;
+            font-size: 1.3em;
+        }
+        
+        .cat.two {
+            background-image: url("./Images/2.png");
+            height: 30%;
+            width: 25%;
+            right: 50%;
+            bottom: 19%;
+            z-index: 4;
+        }
+        
+        .cat.two .icon {
+            right: 43%;
+            bottom: 16%;
+            font-size: 1.3em;
+        }
+        
+        .cat.one {
+            background-image: url("./Images/1.png");
+            height: 23%;
+            width: 26%;
+            right: 73%;
+            bottom: 19%;
+            z-index: 2;
+        }
+        
+        .cat.one .icon {
+            right: 52%;
+            bottom: 40%;
+            font-size: 1.3em;
+        }
+        
+        .cat.decimal {
+            background-image: url("./Images/decimal.png");
+            height: 24%;
+            width: 28%;
+            right: 25%;
+            bottom: 0;
+        }
+        
+        .cat.decimal .icon {
+            right: 47%;
+            bottom: 34%;
+            font-size: 2.2em;
+        }
+        
+        .cat.zero {
+            background-image: url("./Images/0.png");
+            height: 22%;
+            width: 53%;
+            right: 49%;
+            bottom: 0;
+            z-index: 1;
+        }
+        
+        .cat.zero .icon {
+            right: 60%;
+            bottom: 22%;
+            font-size: 1.5em;
+        }
+        /* Interaction Layer */
+        
+        .interaction-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            top: 0;
+            z-index: 100;
+            opacity: 0.25;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        }
+        
+        #equals {
+            background-color: blue;
+            grid-column-start: 4;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            grid-row-end: 6;
+        }
+        
+        #zero {
+            background-color: blue;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: 6;
+        }
