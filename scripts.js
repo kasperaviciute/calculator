@@ -3,94 +3,101 @@ let display = 0;
 let currentOperator = "plus";
 let decimalHasBeenAdded = false;
 
-updateDisplay(display);
+// updateDisplay(display);
 
-document.getElementById("myBtn0").addEventListener("click", function() {
-    handleNumericClick(0);
+document.getElementById("clear").addEventListener("click", function() {
+    clearOperator(clear);
     console.log("clicked");
 });
 
-document.getElementById("myBtn1").addEventListener("click", function() {
-    handleNumericClick(1);
-    console.log("clicked");
-});
-
-document.getElementById("myBtn2").addEventListener("click", function() {
-    handleNumericClick(2);
-    console.log("clicked");
-});
-
-document.getElementById("myBtn3").addEventListener("click", function() {
-    handleNumericClick(3);
-    console.log("clicked");
-});
-
-document.getElementById("myBtn4").addEventListener("click", function() {
-    handleNumericClick(4);
-    console.log("clicked");
-})
-
-document.getElementById("myBtn5").addEventListener("click", function() {
-    handleNumericClick(5);
-    console.log("clicked");
-});
-
-document.getElementById("myBtn6").addEventListener("click", function() {
-    handleNumericClick(6);
-    console.log("clicked");
-});
-
-document.getElementById("myBtn7").addEventListener("click", function() {
-    handleNumericClick(7);
-    console.log("clicked");
-});
-
-document.getElementById("myBtn8").addEventListener("click", function() {
-    handleNumericClick(8);
-    console.log("clicked");
-});
-
-document.getElementById("myBtn9").addEventListener("click", function() {
-    handleNumericClick(9);
-    console.log("clicked");
-});
-
-document.getElementById("myBtn9").addEventListener("click", function() {
-    handleNumericClick(9);
-    console.log("clicked");
-});
-
-document.getElementById("myBtnDivide").addEventListener("click", function() {
+document.getElementById("divide").addEventListener("click", function() {
     divisionOperator(divide);
     console.log("clicked");
 });
 
-document.getElementById("myBtnTimes").addEventListener("click", function() {
-    timesOperator(times);
+document.getElementById("multiply").addEventListener("click", function() {
+    multiplicationOperator(multiply);
     console.log("clicked");
 });
 
-document.getElementById("myBtnMinus").addEventListener("click", function() {
+document.getElementById("minus").addEventListener("click", function() {
     minusOperator(minus);
     console.log("clicked");
 });
 
-document.getElementById("myBtnPlus").addEventListener("click", function() {
+document.getElementById("seven").addEventListener("click", function() {
+    handleNumericClick(7);
+    console.log("clicked");
+});
+
+document.getElementById("eight").addEventListener("click", function() {
+    handleNumericClick(8);
+    console.log("clicked");
+})
+
+document.getElementById("nine").addEventListener("click", function() {
+    handleNumericClick(9);
+    console.log("clicked");
+});
+
+document.getElementById("plus").addEventListener("click", function() {
     plusOperator(plus);
     console.log("clicked");
 });
 
-document.getElementById("clearBtn").addEventListener("click", function() {
+document.getElementById("four").addEventListener("click", function() {
+    handleNumericClick(4);
+    console.log("clicked");
+});
+
+document.getElementById("five").addEventListener("click", function() {
+    handleNumericClick(5);
+    console.log("clicked");
+});
+
+document.getElementById("six").addEventListener("click", function() {
+    handleNumericClick(6);
+    console.log("clicked");
+});
+
+document.getElementById("equals").addEventListener("click", function() {
+    handleNumericClick(equals);
+    console.log("clicked");
+});
+
+document.getElementById("one").addEventListener("click", function() {
+    handleNumericClick(1);
+    console.log("clicked");
+});
+
+document.getElementById("two").addEventListener("click", function() {
+    handleNumericClick(2);
+    console.log("clicked");
+});
+
+document.getElementById("three").addEventListener("click", function() {
+    handleNumericClick(3);
+    console.log("clicked");
+});
+
+document.getElementById("zero").addEventListener("click", function() {
     handleNumericClick(0);
     console.log("clicked");
 });
 
+document.getElementById("decimal").addEventListener("click", function() {
+    decimalOperator(decimal);
+    console.log("clicked");
+});
+
+// function handleNumericClick(value) {
+//     // updateDisplay(value);
+// }
+
 function handleNumericClick(value) {
-    updateDisplay(value);
+    console.log(value);
 }
 
-function updateDisplay(value) {
-    document.getElementById("answer").innerHTML = value;
-}
-
-// function divisionOperator()
+// function updateDisplay(value) {
+//     document.getElementById("answer").innerHTML = value;
+// }
