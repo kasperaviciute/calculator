@@ -3,7 +3,7 @@ let display = 0;
 let currentOperator = "plus";
 let decimalHasBeenAdded = false;
 
-// updateDisplay(display);
+updateDisplay(display);
 
 document.getElementById("clear").addEventListener("click", function() {
     clearOperator(clear);
@@ -90,14 +90,14 @@ document.getElementById("decimal").addEventListener("click", function() {
     console.log("clicked");
 });
 
-// function handleNumericClick(value) {
-//     // updateDisplay(value);
-// }
-
 function handleNumericClick(value) {
-    console.log(value);
+    updateDisplay(value);
 }
 
-// function updateDisplay(value) {
-//     document.getElementById("answer").innerHTML = value;
-// }
+function updateDisplay(value) {
+    document.getElementById("answer").innerHTML = value;
+}
+
+function clearOperator() {
+    updateDisplay(0);
+}
