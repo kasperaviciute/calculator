@@ -1,0 +1,24 @@
+{
+    "name": "calculator",
+    "version": "0.0.1",
+    "description": "cat calculator",
+    "main": "scripts.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "parcel index.html",
+        "build": "parcel build index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kasperaviciute/calculator.git"
+    },
+    "author": "Simona Kas",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kasperaviciute/calculator/issues"
+    },
+    "homepage": "https://github.com/kasperaviciute/calculator#readme",
+    "devDependencies": {
+        "parcel-bundler": "^1.12.4"
+    }
+}
