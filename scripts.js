@@ -1,24 +1,25 @@
 let answer = "0";
 let display = "0";
-let currentOperator = "plus";
+let currentOperator = "";
 let decimalHasBeenAdded = false;
+let currentOperatorAdded = false;
 
 updateDisplay(display);
 
 document.getElementById("clear").addEventListener("click", function() {
-    clearOperator(clear);
+    clearOperator();
 });
 
 document.getElementById("divide").addEventListener("click", function() {
-    divisionOperator(divide);
+    divisionOperator();
 });
 
 document.getElementById("multiply").addEventListener("click", function() {
-    multiplicationOperator(multiply);
+    multiplicationOperator();
 });
 
 document.getElementById("minus").addEventListener("click", function() {
-    minusOperator(minus);
+    minusOperator();
 });
 
 document.getElementById("seven").addEventListener("click", function() {
@@ -34,7 +35,7 @@ document.getElementById("nine").addEventListener("click", function() {
 });
 
 document.getElementById("plus").addEventListener("click", function() {
-    plusOperator(plus);
+    plusOperator();
 });
 
 document.getElementById("four").addEventListener("click", function() {
@@ -50,7 +51,7 @@ document.getElementById("six").addEventListener("click", function() {
 });
 
 document.getElementById("equals").addEventListener("click", function() {
-    handleNumericClick(equals);
+    equalsOperator();
 });
 
 document.getElementById("one").addEventListener("click", function() {
@@ -73,8 +74,69 @@ document.getElementById("decimal").addEventListener("click", function() {
     decimalOperator(decimal);
 });
 
+
+function addClickedNumberToDisplay(value) {
+    if (value === 0) {
+        answer = 0;
+        display = 0;
+    } else if (currentOperatorAdded == false) {
+        display = parseInt(display + value);
+        answer = parseInt(answer + value);
+    } else if (currentOperatorAdded == true) {
+        display = value;
+        currentOperatorAdded = false;
+    }
+}
+
+function minusOperator() {
+    currentOperator = "-";
+    if (currentOperator === "") {
+        currentOperatorAdded = false;
+        console.log(currentOperatorAdded);
+    } else {
+        currentOperatorAdded = true;
+        console.log(currentOperatorAdded);
+    }
+    console.log(currentOperator);
+}
+
+function plusOperator() {
+    currentOperator = "+";
+    if (currentOperator === "") {
+        currentOperatorAdded = false;
+        console.log(currentOperatorAdded);
+    } else {
+        currentOperatorAdded = true;
+        console.log(currentOperatorAdded);
+    }
+    console.log(currentOperator);
+}
+
+
+function equalsOperator() {
+    display = eval(answer + currentOperator + display);
+    updateDisplay(display);
+    console.log(display);
+}
+
+
+// console.log(eval('2 + 2'));
+// // expected output: 4
+
+// console.log(eval(new String('2 + 2')));
+// // expected output: 2 + 2
+
+// console.log(eval('2 + 2') === eval('4'));
+// // expected output: true
+
+// console.log(eval('2 + 2') === eval(new String('2 + 2')));
+// // expected output: false
+
+
+
 function handleNumericClick(value) {
-    updateDisplay(value);
+    addClickedNumberToDisplay(value);
+    updateDisplay(display);
 }
 
 function updateDisplay(value) {
@@ -82,5 +144,16 @@ function updateDisplay(value) {
 }
 
 function clearOperator() {
+    answer = 0;
+    display = 0;
     updateDisplay(0);
 }
+
+// function addDecimalOnce() {
+//     if (display === 0) {
+//         display.push(0.);
+//     } else() {
+
+//     }
+//     updateDisplay();
+// }
