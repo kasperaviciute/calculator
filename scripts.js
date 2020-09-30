@@ -1,6 +1,7 @@
 let answer = "0";
 let display = "0";
 let currentOperator = "";
+let evaluation = "0";
 let decimalHasBeenAdded = false;
 let currentOperatorAdded = false;
 
@@ -90,49 +91,42 @@ function addClickedNumberToDisplay(value) {
 
 function minusOperator() {
     currentOperator = "-";
-    if (currentOperator === "") {
-        currentOperatorAdded = false;
-        console.log(currentOperatorAdded);
-    } else {
-        currentOperatorAdded = true;
-        console.log(currentOperatorAdded);
-    }
-    console.log(currentOperator);
+    operators();
 }
 
 function plusOperator() {
     currentOperator = "+";
+    operators();
+}
+
+function multiplicationOperator() {
+    currentOperator = "*";
+    operators();
+}
+
+function divisionOperator() {
+    currentOperator = "/";
+    operators();
+}
+
+function operators() {
     if (currentOperator === "") {
         currentOperatorAdded = false;
-        console.log(currentOperatorAdded);
     } else {
         currentOperatorAdded = true;
-        console.log(currentOperatorAdded);
     }
     console.log(currentOperator);
 }
 
-
-function equalsOperator() {
-    display = eval(answer + currentOperator + display);
-    updateDisplay(display);
-    console.log(display);
+function evaluate() {
+    answer = eval(answer + currentOperator + display);
+    console.log(answer);
 }
 
-
-// console.log(eval('2 + 2'));
-// // expected output: 4
-
-// console.log(eval(new String('2 + 2')));
-// // expected output: 2 + 2
-
-// console.log(eval('2 + 2') === eval('4'));
-// // expected output: true
-
-// console.log(eval('2 + 2') === eval(new String('2 + 2')));
-// // expected output: false
-
-
+function equalsOperator() {
+    evaluate();
+    updateDisplay(answer);
+}
 
 function handleNumericClick(value) {
     addClickedNumberToDisplay(value);
