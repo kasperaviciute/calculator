@@ -1,26 +1,28 @@
 let answer = "0";
-let display = "0";
-let currentOperator = "";
+let newNumber = "0";
+let operator = "+";
 let evaluation = "0";
 let decimalHasBeenAdded = false;
-let currentOperatorAdded = false;
-
-updateDisplay(display);
+let isConstructingNewNumber = true;
 
 document.getElementById("clear").addEventListener("click", function() {
     clearOperator();
 });
 
-document.getElementById("divide").addEventListener("click", function() {
-    divisionOperator();
-});
-
-document.getElementById("multiply").addEventListener("click", function() {
-    multiplicationOperator();
+document.getElementById("plus").addEventListener("click", function() {
+    handleOperatorClick("+");
 });
 
 document.getElementById("minus").addEventListener("click", function() {
-    minusOperator();
+    handleOperatorClick("-");
+});
+
+document.getElementById("multiply").addEventListener("click", function() {
+    handleOperatorClick("*");
+});
+
+document.getElementById("divide").addEventListener("click", function() {
+    handleOperatorClick("/");
 });
 
 document.getElementById("seven").addEventListener("click", function() {
@@ -33,10 +35,6 @@ document.getElementById("eight").addEventListener("click", function() {
 
 document.getElementById("nine").addEventListener("click", function() {
     handleNumericClick("9");
-});
-
-document.getElementById("plus").addEventListener("click", function() {
-    plusOperator();
 });
 
 document.getElementById("four").addEventListener("click", function() {
@@ -77,70 +75,56 @@ document.getElementById("decimal").addEventListener("click", function() {
 
 
 function addClickedNumberToDisplay(value) {
-    if (value === 0) {
-        answer = 0;
-        display = 0;
-    } else if (currentOperatorAdded == false) {
-        display = parseInt(display + value);
-        answer = parseInt(answer + value);
-    } else if (currentOperatorAdded == true) {
-        display = value;
-        currentOperatorAdded = false;
+    if (isConstructingNewNumber == false) {
+        if (newNumber === "0") {
+            newNumber = value;
+        } else {
+            newNumber = newNumber + value;
+        }
+    } else if (isConstructingNewNumber == true) {
+        newNumber = value;
+        isConstructingNewNumber = false;
     }
-}
-
-function minusOperator() {
-    currentOperator = "-";
-    operators();
-}
-
-function plusOperator() {
-    currentOperator = "+";
-    operators();
-}
-
-function multiplicationOperator() {
-    currentOperator = "*";
-    operators();
-}
-
-function divisionOperator() {
-    currentOperator = "/";
-    operators();
-}
-
-function operators() {
-    if (currentOperator === "") {
-        currentOperatorAdded = false;
-    } else {
-        currentOperatorAdded = true;
-    }
-    console.log(currentOperator);
-}
-
-function evaluate() {
-    answer = eval(answer + currentOperator + display);
-    console.log(answer);
-}
-
-function equalsOperator() {
-    evaluate();
-    updateDisplay(answer);
 }
 
 function handleNumericClick(value) {
     addClickedNumberToDisplay(value);
-    updateDisplay(display);
+    updateDisplay();
 }
 
-function updateDisplay(value) {
-    document.getElementById("answer").innerHTML = value;
+function handleOperatorClick(argument) {
+    operator = argument;
+    evaluate();
+    updateDisplay(true);
+    isConstructingNewNumber = true;
+}
+
+function evaluate() {
+    answer = eval(answer + operator + newNumber);
+}
+
+function equalsOperator() {
+    evaluate();
+    updateDisplay();
+}
+
+updateDisplay();
+
+function updateDisplay(showAnswer) {
+    let displayValue;
+    if (showAnswer) {
+        displayValue = answer;
+    } else {
+        displayValue = display;
+    }
+    document.getElementById("answer").innerHTML = displayValue;
 }
 
 function clearOperator() {
     answer = 0;
-    display = 0;
-    updateDisplay(0);
+    newNumber = 0;
+    operator = "+";
+    updateDisplay();
 }
 
 // function addDecimalOnce() {
