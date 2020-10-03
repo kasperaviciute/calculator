@@ -50,7 +50,8 @@ document.getElementById("six").addEventListener("click", function() {
 });
 
 document.getElementById("equals").addEventListener("click", function() {
-    equalsOperator();
+    handleEqualsClick();
+    console.log("poop");
 });
 
 document.getElementById("one").addEventListener("click", function() {
@@ -93,36 +94,41 @@ function handleNumericClick(value) {
 }
 
 function handleOperatorClick(argument) {
-    operator = argument;
     evaluate();
     updateDisplay(true);
+    operator = argument;
     isConstructingNewNumber = true;
 }
 
-function evaluate() {
-    answer = eval(answer + operator + newNumber);
+function handleEqualsClick() {
+    evaluate();
+    updateDisplay(true);
 }
 
-function equalsOperator() {
-    evaluate();
-    updateDisplay();
+function evaluate() {
+    console.log(answer, operator, newNumber);
+    answer = eval(answer + operator + newNumber);
 }
 
 updateDisplay();
 
+// function updateDisplay(showAnswer) {
+//     let displayValue;
+//     if (showAnswer) {
+//         displayValue = answer;
+//     } else {
+//         displayValue = newNumber;
+//     }
+//     document.getElementById("answer").innerHTML = displayValue;
+// }
+
 function updateDisplay(showAnswer) {
-    let displayValue;
-    if (showAnswer) {
-        displayValue = answer;
-    } else {
-        displayValue = display;
-    }
-    document.getElementById("answer").innerHTML = displayValue;
-}
+    document.getElementById("answer").innerHTML = showAnswer ? answer : newNumber;
+  }
 
 function clearOperator() {
-    answer = 0;
-    newNumber = 0;
+    answer = "0";
+    newNumber = "0";
     operator = "+";
     updateDisplay();
 }
