@@ -4,6 +4,7 @@ let operator = "+";
 let evaluation = "0";
 let decimalHasBeenAdded = false;
 let isConstructingNewNumber = true;
+let hasEqualsBeenClicked = false;
 
 document.getElementById("clear").addEventListener("click", function() {
     clearOperator();
@@ -51,7 +52,6 @@ document.getElementById("six").addEventListener("click", function() {
 
 document.getElementById("equals").addEventListener("click", function() {
     handleEqualsClick();
-    console.log("poop");
 });
 
 document.getElementById("one").addEventListener("click", function() {
@@ -71,7 +71,7 @@ document.getElementById("zero").addEventListener("click", function() {
 });
 
 document.getElementById("decimal").addEventListener("click", function() {
-    decimalOperator(decimal);
+    handleDecimalClick();
 });
 
 
@@ -94,23 +94,46 @@ function handleNumericClick(value) {
 }
 
 function handleOperatorClick(argument) {
-    evaluate();
-    updateDisplay(true);
+    if (hasEqualsBeenClicked == false) {
+        evaluate();
+        newNumber = "0";
+    }
+    else {
+        hasEqualsBeenClicked = false;
+    }
     operator = argument;
+    updateDisplay(true);
     isConstructingNewNumber = true;
+    decimalHasBeenAdded = false;
 }
 
 function handleEqualsClick() {
     evaluate();
     updateDisplay(true);
+    hasEqualsBeenClicked = true;
+    decimalHasBeenAdded = false;
 }
 
 function evaluate() {
     console.log(answer, operator, newNumber);
-    answer = eval(answer + operator + newNumber);
+    answer = eval(answer + operator + newNumber).toString();
 }
 
 updateDisplay();
+
+function handleDecimalClick(){
+    if (decimalHasBeenAdded == false) {
+        newNumber = newNumber + ".";
+        decimalHasBeenAdded = true;
+        isConstructingNewNumber = false;
+        if (isConstructingNewNumber == true && newNumber === "0") {
+            newNumber = "0.";
+            isConstructingNewNumber = false;
+            decimalHasBeenAdded = true;
+        }
+    }
+    updateDisplay();
+}
 
 // function updateDisplay(showAnswer) {
 //     let displayValue;
@@ -130,14 +153,8 @@ function clearOperator() {
     answer = "0";
     newNumber = "0";
     operator = "+";
+    decimalHasBeenAdded = false;
+    hasEqualsBeenClicked = false;
     updateDisplay();
 }
 
-// function addDecimalOnce() {
-//     if (display === 0) {
-//         display.push(0.);
-//     } else() {
-
-//     }
-//     updateDisplay();
-// }
