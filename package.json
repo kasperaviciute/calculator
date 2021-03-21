@@ -166,7 +166,7 @@
     "is-plain-object": "^2.0.4",
     "is-regex": "^1.1.1",
     "is-resolvable": "^1.1.0",
-    "is-svg": "^3.0.0",
+    "is-svg": "^4.2.2",
     "is-symbol": "^1.0.3",
     "is-typedarray": "^1.0.0",
     "is-windows": "^1.0.2",
